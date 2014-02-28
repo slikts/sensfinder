@@ -44,7 +44,7 @@ To use the <strong>training_aim_csgo_fixed</strong> map, Subscribe to it from it
 
 ##About
 
-Project [GitHub page](#) | [reddit post](#)
+Project [GitHub page](https://github.com/slikts/sensfinder) | [reddit post](#)
 
 This tool is published under the MIT licence.
 
