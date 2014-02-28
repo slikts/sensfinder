@@ -2,7 +2,7 @@
 
 Building:
 
- * `[cactus](//github.com/koenbok/Cactus) serve`
- * `compass [compass](http://compass-style.org/) watch`
+ * [Cactus](//github.com/koenbok/Cactus): `cactus serve`
+ * [Compass](http://compass-style.org/): `compass watch`
 
 Published under the MIT licence.
