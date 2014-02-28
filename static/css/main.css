@@ -65,8 +65,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 @font-face {
   font-family: "Logo";
-  src: url('/static/css/fonts/logo.eot');
-  src: url('/static/css/fonts/logo.eot?#iefix') format('eot'), url('/static/css/fonts/logo.woff') format('woff'), url('/static/css/fonts/logo.otf') format('opentype'), url('/static/css/fonts/logo.svg') format('svg');
+  src: url('fonts/logo.eot');
+  src: url('fonts/logo.eot?#iefix') format('eot'), url('fonts/logo.woff') format('woff'), url('fonts/logo.otf') format('opentype'), url('fonts/logo.svg') format('svg');
 }
 
 /* line 48, ../../sass/main.scss */
