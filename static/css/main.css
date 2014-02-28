@@ -1,0 +1,852 @@
+/* line 17, ../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+@font-face {
+  font-family: "Logo";
+  src: url('/static/css/fonts/logo.eot');
+  src: url('/static/css/fonts/logo.eot?#iefix') format('eot'), url('/static/css/fonts/logo.woff') format('woff'), url('/static/css/fonts/logo.otf') format('opentype'), url('/static/css/fonts/logo.svg') format('svg');
+}
+
+/* line 48, ../../sass/main.scss */
+.notice {
+  background: rgba(244, 133, 141, 0.95);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  padding: .5em;
+  text-align: center;
+}
+
+/* line 55, ../../sass/main.scss */
+html,
+body {
+  height: 100%;
+}
+
+/* line 58, ../../sass/main.scss */
+body {
+  background-image: url("../img/bg.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #44c92b), color-stop(100%, #38c622));
+  background-image: url("../img/bg.png"), -webkit-linear-gradient(#44c92b, #38c622);
+  background-image: url("../img/bg.png"), -moz-linear-gradient(#44c92b, #38c622);
+  background-image: url("../img/bg.png"), -o-linear-gradient(#44c92b, #38c622);
+  background-image: url("../img/bg.png"), linear-gradient(#44c92b, #38c622);
+  background-attachment: fixed;
+  -webkit-background-size: auto 100%, auto 100%;
+  -moz-background-size: auto 100%, auto 100%;
+  -o-background-size: auto 100%, auto 100%;
+  background-size: auto 100%, auto 100%;
+}
+
+/* line 65, ../../sass/main.scss */
+input,
+body,
+button {
+  color: #fff;
+  font-family: "PT Sans", "Myriad Pro", sans-serif;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+/* line 73, ../../sass/main.scss */
+ol,
+p {
+  margin: 1em 0;
+}
+
+/* line 76, ../../sass/main.scss */
+code {
+  font-family: Consolas, monospace;
+}
+
+/* line 79, ../../sass/main.scss */
+li {
+  margin: .1em 0;
+}
+
+/* line 82, ../../sass/main.scss */
+a {
+  color: #e92836;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* line 87, ../../sass/main.scss */
+a:hover {
+  /*text-decoration: underline;*/
+}
+/* line 90, ../../sass/main.scss */
+a:hover {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  padding: 0 2px;
+  margin: 0 -2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+/* line 96, ../../sass/main.scss */
+a:visited {
+  color: #af424a;
+}
+/* line 99, ../../sass/main.scss */
+a:active {
+  color: #eb3f4c;
+}
+
+/* line 103, ../../sass/main.scss */
+kbd {
+  font-family: Consolas, monospace;
+  color: #1b810b;
+  background: #89e37b;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  padding: 0 .375em;
+  margin: 0 .1em;
+}
+
+/* line 111, ../../sass/main.scss */
+kbd.switchkey {
+  text-transform: capitalize;
+}
+
+/* line 115, ../../sass/main.scss */
+input:focus,
+button:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.65);
+  -moz-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.65);
+  box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.65);
+}
+
+/* line 119, ../../sass/main.scss */
+button {
+  padding: .35em 1em;
+  background: rgba(255, 255, 255, 0.175);
+  border-style: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.05s ease, box-shadow 0.75s ease;
+  -moz-transition: background-color 0.05s ease, box-shadow 0.75s ease;
+  -o-transition: background-color 0.05s ease, box-shadow 0.75s ease;
+  transition: background-color 0.05s ease, box-shadow 0.75s ease;
+}
+/* line 126, ../../sass/main.scss */
+button.zeroclipboard-is-hover, button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+/* line 131, ../../sass/main.scss */
+button.zeroclipboard-is-active, button:active {
+  background-color: rgba(255, 255, 255, 0.375);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 136, ../../sass/main.scss */
+#tool_start {
+  margin-top: 1.25em;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0) inset;
+}
+/* line 142, ../../sass/main.scss */
+#tool_start.pulse {
+  box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.15) inset;
+}
+
+/* line 149, ../../sass/main.scss */
+h1,
+h2,
+h3 {
+  cursor: default;
+}
+
+/* line 152, ../../sass/main.scss */
+h1 {
+  margin-top: .125em;
+  font-size: 56px;
+  font-weight: bold;
+  text-shadow: rgba(28, 118, 12, 0.45) 5px 5px 0;
+}
+
+/* line 158, ../../sass/main.scss */
+h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+/* line 163, ../../sass/main.scss */
+h3 {
+  font-size: 24px;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+/* line 169, ../../sass/main.scss */
+#wrapper {
+  height: 100%;
+  padding: 3.5em 0;
+  width: 940px;
+  margin: auto;
+  position: relative;
+}
+
+/* line 176, ../../sass/main.scss */
+#tool_side {
+  position: absolute;
+  left: 0;
+  padding-bottom: 30px;
+  top: 3.5em;
+}
+
+/* line 183, ../../sass/main.scss */
+#tool {
+  margin-top: 20px;
+  margin-left: 75px;
+  width: 170px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+/* line 188, ../../sass/main.scss */
+#tool .tool_options {
+  font-size: 14px;
+  clear: both;
+  margin: 0;
+  padding-top: 1px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+/* line 194, ../../sass/main.scss */
+#tool .tool_options label {
+  padding-left: 5px;
+  line-height: 25px;
+}
+/* line 197, ../../sass/main.scss */
+#tool .tool_options label:after {
+  content: ':';
+}
+/* line 203, ../../sass/main.scss */
+#tool .tool_options_text input {
+  font-size: 14px;
+  width: 39px;
+  margin-right: 3px;
+  float: right;
+}
+/* line 210, ../../sass/main.scss */
+#tool input[type=checkbox] {
+  position: relative;
+  top: 2px;
+  float: right;
+  margin-right: 3px;
+}
+/* line 217, ../../sass/main.scss */
+#tool.started .tool_overlay {
+  display: block;
+}
+/* line 220, ../../sass/main.scss */
+#tool.started #tool_options {
+  height: 0 !important;
+  overflow: hidden;
+}
+/* line 224, ../../sass/main.scss */
+#tool.started #tool_defaults {
+  display: none;
+}
+/* line 228, ../../sass/main.scss */
+#tool.started #tool_reset,
+#tool.started #tool_undo {
+  -webkit-transition: opacity 0.1s ease;
+  -webkit-transition-delay: 0.075s;
+  -moz-transition: opacity 0.1s ease 0.075s;
+  -o-transition: opacity 0.1s ease 0.075s;
+  transition: opacity 0.1s ease 0.075s;
+  opacity: 1;
+  position: static;
+}
+/* line 233, ../../sass/main.scss */
+#tool.started #tool_start {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* line 236, ../../sass/main.scss */
+#tool.started #tool_options_row {
+  display: none;
+}
+/* line 241, ../../sass/main.scss */
+#tool.changed #tool_defaults {
+  opacity: 1;
+  -webkit-transition: opacity 0.1s ease;
+  -moz-transition: opacity 0.1s ease;
+  -o-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
+}
+/* line 246, ../../sass/main.scss */
+#tool input.error {
+  -webkit-box-shadow: 0 0 1px 1px rgba(244, 133, 141, 0.95);
+  -moz-box-shadow: 0 0 1px 1px rgba(244, 133, 141, 0.95);
+  box-shadow: 0 0 1px 1px rgba(244, 133, 141, 0.95);
+}
+/* line 253, ../../sass/main.scss */
+#tool #tool_table tr:last-child td span {
+  display: block;
+  position: relative;
+  height: 20px;
+}
+/* line 257, ../../sass/main.scss */
+#tool #tool_table tr:last-child td span:before {
+  font-family: Logo;
+  color: #fff;
+  content: 'a';
+  vertical-align: middle;
+  position: relative;
+  top: -3px;
+  margin-right: 3px;
+}
+/* line 272, ../../sass/main.scss */
+#tool.blinded th:first-child,
+#tool.blinded th:first-child + th {
+  color: rgba(255, 255, 255, 0);
+}
+/* line 274, ../../sass/main.scss */
+#tool.blinded th:first-child:before,
+#tool.blinded th:first-child + th:before {
+  color: #fff;
+}
+/* line 279, ../../sass/main.scss */
+#tool.blinded th:first-child:before {
+  content: 'A';
+}
+/* line 284, ../../sass/main.scss */
+#tool.blinded th:first-child + th:before {
+  content: 'B';
+}
+/* line 290, ../../sass/main.scss */
+#tool.blinded tbody tr:last-child td {
+  color: rgba(255, 255, 255, 0);
+}
+/* line 291, ../../sass/main.scss */
+#tool.blinded tbody tr:last-child td span {
+  display: block;
+  position: relative;
+  height: 20px;
+}
+/* line 295, ../../sass/main.scss */
+#tool.blinded tbody tr:last-child td span:before {
+  font-family: Logo;
+  color: #fff;
+  content: 'a';
+}
+/* line 300, ../../sass/main.scss */
+#tool.blinded tbody tr:last-child td span:after {
+  position: absolute;
+  left: 1.25em;
+  content: '?';
+  color: #fff;
+}
+/* line 312, ../../sass/main.scss */
+#tool .placeholder {
+  display: none;
+}
+/* line 316, ../../sass/main.scss */
+#tool.scrolled .placeholder {
+  display: table-row;
+}
+/* line 319, ../../sass/main.scss */
+#tool.scrolled #tool_header {
+  position: fixed;
+  top: 0;
+  z-index: 101;
+  width: 170px;
+}
+/* line 324, ../../sass/main.scss */
+#tool.scrolled #tool_header th {
+  width: 85px;
+  background: #44c92b;
+}
+/* line 327, ../../sass/main.scss */
+#tool.scrolled #tool_header th:first-child {
+  width: 87px;
+}
+/* line 333, ../../sass/main.scss */
+#tool.scrolled.scrolled_over #tool_header {
+  position: absolute;
+  top: 100%;
+  margin-top: -50px;
+}
+
+/* line 342, ../../sass/main.scss */
+#tool_defaults {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  opacity: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 349, ../../sass/main.scss */
+#tool_options {
+  overflow: hidden;
+  width: 110%;
+  padding: 0 5%;
+  margin-left: -5%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: height 0.1s ease;
+  -moz-transition: height 0.1s ease;
+  -o-transition: height 0.1s ease;
+  transition: height 0.1s ease;
+}
+
+/* line 357, ../../sass/main.scss */
+#tool_options > *:first-child {
+  margin-top: 1em;
+}
+
+/* line 360, ../../sass/main.scss */
+#tool_table {
+  width: 170px;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+/* line 364, ../../sass/main.scss */
+#tool_table td {
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 3px 3px 0;
+  font-family: Consolas, monospace;
+  font-size: 16px;
+  -webkit-transition: background-color 0.05s ease;
+  -moz-transition: background-color 0.05s ease;
+  -o-transition: background-color 0.05s ease;
+  transition: background-color 0.05s ease;
+}
+/* line 367, ../../sass/main.scss */
+#tool_table td:first-child {
+  border-left-style: none;
+}
+/* line 373, ../../sass/main.scss */
+#tool_table td span {
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  text-overflow: ellipsis;
+}
+/* line 380, ../../sass/main.scss */
+#tool_table td.this span {
+  padding-left: 1px;
+  width: 100%;
+  margin-left: -1px;
+  background: rgba(0, 0, 0, 0.15);
+  display: block;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+/* line 390, ../../sass/main.scss */
+#tool_table tr:last-child td {
+  padding-bottom: 3px;
+}
+/* line 393, ../../sass/main.scss */
+#tool_table th {
+  padding: 2px 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: default;
+}
+/* line 398, ../../sass/main.scss */
+#tool_table input {
+  width: 100%;
+  height: 22px;
+  line-height: 22px;
+}
+/* line 403, ../../sass/main.scss */
+#tool_table .sens {
+  line-height: 24px;
+}
+/* line 404, ../../sass/main.scss */
+#tool_table .sens td {
+  padding-left: 4px;
+  cursor: default;
+}
+/* line 411, ../../sass/main.scss */
+#tool_table.hover_a .a, #tool_table.hover_b .b {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* line 415, ../../sass/main.scss */
+label {
+  cursor: pointer;
+}
+
+/* line 418, ../../sass/main.scss */
+input[type=text] {
+  background: rgba(69, 149, 56, 0.95);
+  border-style: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  text-indent: 1px;
+  font-family: Consolas, monospace;
+}
+
+/* line 425, ../../sass/main.scss */
+th {
+  font-weight: bold;
+}
+
+/* line 429, ../../sass/main.scss */
+#content {
+  margin-left: auto;
+  width: 620px;
+  padding-bottom: 2em;
+}
+/* line 433, ../../sass/main.scss */
+#content ol {
+  counter-reset: item -1;
+}
+/* line 435, ../../sass/main.scss */
+#content ol li {
+  margin-left: 2em;
+  position: relative;
+}
+/* line 437, ../../sass/main.scss */
+#content ol li:first-child {
+  color: #d2f2cc;
+}
+/* line 441, ../../sass/main.scss */
+#content ol li:before {
+  position: absolute;
+  content: counter(item) ".";
+  counter-increment: item;
+  right: 100%;
+  margin-right: .5em;
+}
+/* line 448, ../../sass/main.scss */
+#content ol li p {
+  margin: .1em 0;
+}
+/* line 450, ../../sass/main.scss */
+#content ol li p:not(:first-child) {
+  font-size: 12px;
+  color: #d2f2cc;
+}
+/* line 453, ../../sass/main.scss */
+#content ol li p:not(:first-child) code {
+  color: #fff;
+}
+
+/* line 461, ../../sass/main.scss */
+strong {
+  font-weight: bold;
+}
+
+/* line 465, ../../sass/main.scss */
+#logo {
+  margin: 0;
+  display: none;
+}
+/* line 469, ../../sass/main.scss */
+#logo a {
+  margin-top: -20px;
+  display: block;
+  height: 150px;
+  width: 170px;
+  margin-left: 75px;
+  text-indent: -1000em;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+}
+/* line 479, ../../sass/main.scss */
+#logo a:hover {
+  background: none;
+  margin-left: 75px;
+  opacity: .5;
+}
+/* line 484, ../../sass/main.scss */
+#logo a:after {
+  color: #89E37B;
+  position: absolute;
+  text-indent: .1em;
+  top: 0;
+  left: 0;
+  content: 'a';
+  font-size: 150px;
+  line-height: 1em;
+  vertical-align: middle;
+  font-family: 'Logo';
+  text-align: center;
+  width: 100%;
+}
+
+/* line 502, ../../sass/main.scss */
+i,
+em {
+  font-style: italic;
+}
+
+/* line 506, ../../sass/main.scss */
+td {
+  position: relative;
+  z-index: 100;
+}
+
+/* line 511, ../../sass/main.scss */
+#tool_table_wrap {
+  -webkit-transition: height 0.1s ease;
+  -moz-transition: height 0.1s ease;
+  -o-transition: height 0.1s ease;
+  transition: height 0.1s ease;
+  overflow: hidden;
+}
+
+/* line 515, ../../sass/main.scss */
+#tool_table_container {
+  position: relative;
+}
+
+/* line 519, ../../sass/main.scss */
+.tool_overlay {
+  top: 0;
+  cursor: pointer;
+  display: none;
+  opacity: 0;
+  position: absolute;
+  -webkit-transition: opacity 0.05s ease;
+  -moz-transition: opacity 0.05s ease;
+  -o-transition: opacity 0.05s ease;
+  transition: opacity 0.05s ease;
+  z-index: 100;
+  padding-left: 50px;
+}
+/* line 529, ../../sass/main.scss */
+.tool_overlay.hover, .tool_overlay:hover {
+  opacity: 1;
+}
+
+/* line 533, ../../sass/main.scss */
+#tool_overlay_a {
+  left: 0;
+  margin-left: -50px;
+}
+
+/* line 537, ../../sass/main.scss */
+#tool_overlay_b {
+  margin-right: -50px;
+  right: 0;
+}
+
+/* line 541, ../../sass/main.scss */
+#tool_controls {
+  cursor: default;
+  position: relative;
+  margin: .5em 0;
+  font-size: 12px;
+  text-align: center;
+}
+/* line 547, ../../sass/main.scss */
+#tool_controls li {
+  -webkit-transition: opacity 0.1s ease;
+  -moz-transition: opacity 0.1s ease;
+  -o-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
+  opacity: 0;
+  display: inline;
+  padding: 0 .5em;
+}
+
+/* line 555, ../../sass/main.scss */
+.notice,
+.tooltip {
+  cursor: default;
+  background: rgba(244, 133, 141, 0.95);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  opacity: 0;
+}
+
+/* line 561, ../../sass/main.scss */
+.notice {
+  position: fixed;
+  padding: .1em 2em;
+  opacity: 1;
+  top: 30px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  opacity: 0;
+  margin-top: -15px;
+}
+/* line 572, ../../sass/main.scss */
+.notice.show {
+  -webkit-transition: opacity 0.15s ease-in, margin 0.15s ease-in;
+  -moz-transition: opacity 0.15s ease-in, margin 0.15s ease-in;
+  -o-transition: opacity 0.15s ease-in, margin 0.15s ease-in;
+  transition: opacity 0.15s ease-in, margin 0.15s ease-in;
+  opacity: 1;
+  margin-top: 0;
+}
+/* line 578, ../../sass/main.scss */
+.notice.hide {
+  -webkit-transition: opacity 0.15s ease-out, margin 0.15s ease-out;
+  -moz-transition: opacity 0.15s ease-out, margin 0.15s ease-out;
+  -o-transition: opacity 0.15s ease-out, margin 0.15s ease-out;
+  transition: opacity 0.15s ease-out, margin 0.15s ease-out;
+  margin-top: 15px;
+  opacity: 0;
+}
+
+/* line 585, ../../sass/main.scss */
+.tooltip {
+  z-index: 100;
+  position: absolute;
+  margin-left: 20px;
+  -webkit-transition: margin 0.1s ease, opacity 0.1s ease;
+  -moz-transition: margin 0.1s ease, opacity 0.1s ease;
+  -o-transition: margin 0.1s ease, opacity 0.1s ease;
+  transition: margin 0.1s ease, opacity 0.1s ease;
+  padding: .5em;
+  max-width: 345px;
+  font-size: 14px;
+}
+/* line 595, ../../sass/main.scss */
+.tooltip.show {
+  margin-left: 0;
+  opacity: 1;
+}
+/* line 599, ../../sass/main.scss */
+.tooltip:before {
+  content: ' ';
+  left: 0;
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  margin-top: -7px;
+  left: -7px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 7px solid rgba(244, 133, 141, 0.95);
+}
+/* line 613, ../../sass/main.scss */
+.tooltip input[type=text] {
+  background: rgba(255, 255, 255, 0.95);
+  color: #459538;
+}
+/* line 617, ../../sass/main.scss */
+.tooltip b {
+  font-weight: bold;
+}
+/* line 620, ../../sass/main.scss */
+.tooltip input {
+  font-size: inherit;
+}
+/* line 622, ../../sass/main.scss */
+.tooltip input:focus {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* line 626, ../../sass/main.scss */
+.tooltip.command {
+  /*width: $side-w;*/
+  max-width: none;
+  white-space: nowrap;
+}
+/* line 630, ../../sass/main.scss */
+.tooltip.command label {
+  /*display: block;*/
+  margin-bottom: .1em;
+}
+/* line 634, ../../sass/main.scss */
+.tooltip.command input {
+  cursor: pointer;
+  /*display: block;*/
+  width: 320px;
+}

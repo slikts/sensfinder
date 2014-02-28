@@ -1,0 +1,641 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/css3/user-interface";
+
+@include font-face('Logo', font-files('logo.woff', 'logo.otf', 'logo.svg'), 'logo.eot');
+
+$bg: #38c622;
+$bg2: #44c92b;
+
+$link: #e92836;
+$link-visited: #af424a;
+
+$line-height: 1.25;
+
+$kbd-text: #1b810b;
+$kbd-bg: #89e37b;
+
+$main-r: 3px;
+
+$shadow-c: #1c760c;
+$shadow-c-t: transparentize($shadow-c, 0.55);
+
+$content-w: 620px;
+$side-w: 320px;
+
+$button-bg: transparentize(#fff, .825);
+
+$table-border-color: transparentize(#fff, .75);
+
+$input-bg: #459538;
+
+$wrapper-p-v: 3.5em;
+$tool-w: 170px;
+
+$notice-bg-solid: #f4858d;
+$notice-bg: transparentize($notice-bg-solid, .05);
+
+$monospace: Consolas, monospace;
+
+$overlay-bg: #459538;
+
+$color-demph: lighten(#cef1c8, 1%);
+
+$ts: .1s;
+
+$result-size: 16px;
+
+.notice {
+    background: $notice-bg;
+    @include border-radius($main-r);
+    padding: .5em;
+    text-align: center;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    @include background-image(url('../img/bg.png'), linear-gradient($bg2, $bg));
+    background-attachment: fixed;
+    @include background-size(auto 100%, auto 100%);
+}
+input,
+body,
+button {
+    color: #fff;
+    font-family: "PT Sans", "Myriad Pro", sans-serif;
+    font-size: 18px;
+    line-height: $line-height;
+
+}
+ol,
+p {
+    margin: 1em 0;
+}
+code {
+    font-family: $monospace;
+}
+li {
+    margin: .1em 0;
+}
+a {
+    color: $link;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+        /*text-decoration: underline;*/
+    }
+    &:hover {
+        @include border-radius($main-r);
+        padding: 0 2px;
+        margin: 0 -2px;
+        background: transparentize(#fff, .8);
+    }
+    &:visited {
+        color: $link-visited;
+    }
+    &:active {
+        color: lighten($link, 5%);
+    }
+}
+kbd {
+    font-family: $monospace;
+    color: $kbd-text;
+    background: $kbd-bg;
+    @include border-radius($main-r);
+    padding: 0 .375em;
+    margin: 0 .1em;
+}
+kbd.switchkey {
+    text-transform: capitalize;
+}
+input:focus,
+button:focus {
+    outline: none;
+    @include box-shadow(0 0 1px 1px transparentize(#fff, .35));
+}
+button {
+    padding: .35em 1em;
+    background: $button-bg;
+    border-style: none;
+    @include border-radius($main-r);
+    @include transition(background-color .05s ease, box-shadow .75s ease);
+    &.zeroclipboard-is-hover,
+    &:hover {
+        cursor: pointer;
+        background-color: opacify($button-bg, .075);
+    }
+    &.zeroclipboard-is-active,
+    &:active {
+        background-color: opacify($button-bg, .2);
+        @include box-shadow(none);
+    }
+}
+#tool_start {
+    margin-top: 1.25em;
+    width: 100%;
+    position: relative;
+    $c: #fff;
+    box-shadow: 0 0 5px 5px transparentize($c, 1) inset;
+    &.pulse {
+        box-shadow: 0 0 20px 20px transparentize($c, .85) inset;
+    }
+}
+
+h1,
+h2,
+h3 {
+    cursor: default;
+}
+h1 {
+    margin-top: .125em;
+    font-size: 56px;
+    font-weight: bold;
+    @include text-shadow($shadow-c-t 5px 5px 0);
+}
+h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 1em;
+}
+h3 {
+    font-size: 24px;
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+#wrapper {
+    height: 100%;
+    padding: $wrapper-p-v 0;
+    width: $content-w + $side-w;
+    margin: auto;
+    position: relative;
+}
+#tool_side {
+    position: absolute;
+    left: 0;
+    padding-bottom: 30px;
+    top: $wrapper-p-v;
+}
+
+#tool {
+    margin-top: 20px;
+    margin-left: ($side-w - $tool-w) / 2;
+    width: $tool-w;
+    @include user-select(none);
+    .tool_options {
+        font-size: 14px;
+        clear: both;
+        margin: 0;
+        padding-top: 1px;
+        border-top: 1px solid $table-border-color;
+        label {
+            padding-left: 5px;
+            line-height: 25px;
+            &:after {
+                content: ':';
+            }
+        }
+    }
+    .tool_options_text {
+        input {
+            font-size: 14px;
+            width: ($tool-w / 2 - 7px) / 2;
+            margin-right: 3px;
+            float: right;
+        }
+    }
+    input[type=checkbox] {
+        position: relative;
+        top: 2px;
+        float: right;
+        margin-right: 3px;
+    }
+    &.started {
+        .tool_overlay {
+            display: block;
+        }
+        #tool_options {
+            height: 0 !important;
+            overflow: hidden;
+        }
+        #tool_defaults {
+            display: none;
+        }
+        #tool_reset,
+        #tool_undo {
+            @include transition(opacity .1s ease .075s);
+            opacity: 1;
+            position: static;
+        }
+        #tool_start {
+            @include box-shadow(none);
+        }
+        #tool_options_row {
+            display: none;
+        }
+    }
+    &.changed {
+        #tool_defaults {
+            opacity: 1;
+            @include transition(opacity .1s ease);
+        }
+    }
+    input.error {
+        @include box-shadow(0 0 1px 1px $notice-bg);
+    }
+    #tool_table {
+
+        tr:last-child {
+            td {
+                span {
+                    display: block;
+                    position: relative;
+                    height: $result-size * $line-height;
+                    &:before {
+                        font-family: Logo;
+                        color: #fff;
+                        content: 'a';
+                        vertical-align: middle;
+                        position: relative;
+                        top: -3px;
+                        margin-right: 3px;
+                    }
+                }
+            }
+        }
+    }
+    &.blinded {
+        th:first-child,
+            th:first-child + th {
+            color: transparentize(#fff, 1);
+            &:before {
+                color: #fff;
+            }
+        }
+        th:first-child {
+            &:before {
+                content: 'A';
+            }
+        }
+        th:first-child + th {
+            &:before {
+                content: 'B';
+            }
+        }
+        tbody {
+            tr:last-child {
+                td {
+                    span {
+                        display: block;
+                        position: relative;
+                        height: $result-size * $line-height;
+                        &:before {
+                            font-family: Logo;
+                            color: #fff;
+                            content: 'a';
+                        }
+                        &:after {
+                            position: absolute;
+                            left: 1.25em;
+                            content: '?';
+                            color: #fff;
+                        }
+                    }
+                    color: transparentize(#fff, 1);
+                }
+            }
+        }
+    }
+    .placeholder {
+        display: none;
+    }
+    &.scrolled {
+        .placeholder {
+            display: table-row;
+        }
+        #tool_header {
+            position: fixed;
+            top: 0;
+            z-index: 101;
+            width: $tool-w;
+            th {
+                width: $tool-w / 2;
+                background: $bg2;
+                &:first-child {
+                    width: $tool-w / 2 + 2;
+                }
+            }
+        }
+        &.scrolled_over {
+            #tool_header {
+                position: absolute;
+                top: 100%;
+                margin-top: -50px;
+            }
+        }
+    }
+
+}
+#tool_defaults {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    opacity: 0;
+    @include box-sizing(border-box);
+}
+#tool_options {
+    overflow: hidden;
+    width: 110%;
+    padding: 0 5%;
+    margin-left: -5%;
+    @include box-sizing(border-box);
+    @include transition(height .1s ease);
+}
+#tool_options > *:first-child {
+    margin-top: 1em;
+}
+#tool_table {
+    width: $tool-w;
+    table-layout: fixed;
+    border-collapse: collapse;
+    td {
+        border-left: 1px solid $table-border-color;
+        padding: 3px 3px 0;
+        &:first-child {
+            border-left-style: none;
+        }
+        font-family: $monospace;
+        font-size: $result-size;
+        @include transition(background-color .05s ease);
+        span {
+            overflow: hidden;
+            width: 100%;
+            display: block;
+            text-overflow: ellipsis;
+        }
+        &.this {
+            span {
+                padding-left: 1px;
+                width: 100%;
+                margin-left: -1px;
+                background: transparentize(#000, .85);
+                display: block;
+                @include border-radius($main-r);
+            }
+        }
+    }
+    tr:last-child td {
+        padding-bottom: 3px;
+    }
+    th {
+        padding: 2px 6px;
+        border-bottom: 1px solid $table-border-color;
+        cursor: default;
+    }
+    input {
+        width: 100%;
+        height: 22px;
+        line-height: 22px;
+    }
+    .sens {
+        td {
+            padding-left: 4px;
+            cursor: default;
+        }
+        line-height: 24px;
+    }
+    &.hover_a .a,
+    &.hover_b .b {
+        background-color: transparentize(#000, .9);
+    }
+}
+label {
+    cursor: pointer;
+}
+input[type=text] {
+    background: transparentize($input-bg, 0.05);
+    border-style: none;
+    @include border-radius($main-r);
+    text-indent: 1px;
+    font-family: $monospace;
+}
+th {
+    font-weight: bold;
+}
+
+#content {
+    margin-left: auto;
+    width: $content-w;
+    padding-bottom: 2em;
+    ol {
+        counter-reset: item -1;
+        li {
+            margin-left: 2em;
+            &:first-child {
+                color: $color-demph;
+            }
+            position: relative;
+            &:before {
+                position: absolute;
+                content: counter(item) ".";
+                counter-increment: item;
+                right: 100%;
+                margin-right: .5em;
+            }
+            p {
+                margin: .1em 0;
+                &:not(:first-child) {
+                    font-size: 12px;
+                    color: $color-demph;
+                    code {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+strong {
+    font-weight: bold;
+}
+
+#logo {
+    margin: 0;
+    $h: 150px;
+    display: none;
+    a {
+        margin-top: -20px;
+        display: block;
+        height: $h;
+        width: $tool-w;
+        margin-left: ($side-w - $tool-w) / 2;
+        text-indent: -1000em;
+        overflow: hidden;
+        position: relative;
+        padding: 0;
+        &:hover {
+            background: none;
+            margin-left: ($side-w - $tool-w) / 2;
+            opacity: .5;
+        }
+        &:after {
+            color: #89E37B;
+            position: absolute;
+            text-indent: .1em;
+            top: 0;
+            left: 0;
+            content: 'a';
+            font-size: $h;
+            line-height: 1em;
+            vertical-align: middle;
+            font-family: 'Logo';
+            text-align: center;
+            width: 100%;
+        }
+    }
+}
+
+i,
+em {
+    font-style: italic;
+}
+
+td {
+    position: relative;
+    z-index: 100;
+}
+
+#tool_table_wrap {
+    @include transition(height .1s ease);
+    overflow: hidden;
+}
+#tool_table_container {
+    position: relative;
+}
+$ob: 50px;
+.tool_overlay {
+    top: 0;
+    cursor: pointer;
+    display: none;
+    opacity: 0;
+    position: absolute;
+    @include transition(opacity .05s ease);
+    z-index: 100;
+    padding-left: $ob;
+    &.hover,
+    &:hover {
+        opacity: 1;
+    }
+}
+#tool_overlay_a {
+    left: 0;
+    margin-left: -$ob;
+}
+#tool_overlay_b {
+    margin-right: -$ob;
+    right: 0;
+}
+#tool_controls {
+    cursor: default;
+    position: relative;
+    margin: .5em 0;
+    font-size: 12px;
+    text-align: center;
+    li {
+        @include transition(opacity .1s ease);
+        opacity: 0;
+        display: inline;
+        padding: 0 .5em;
+    }
+}
+.notice,
+.tooltip {
+    cursor: default;
+    background: $notice-bg;
+    @include border-radius($main-r);
+    opacity: 0;
+}
+.notice {
+    position: fixed;
+    padding: .1em 2em;
+    opacity: 1;
+    top: 30px;
+    left: 50%;
+    @include transform(translate(-50%, 0));
+    $d: 15px;
+    opacity: 0;
+    margin-top: -$d;
+    $q: .15s;
+    &.show {
+        $x: ease-in;
+        @include transition(opacity $q $x, margin $q $x);
+        opacity: 1;
+        margin-top: 0;
+    }
+    &.hide {
+        $x: ease-out;
+        @include transition(opacity $q $x, margin $q $x);
+        margin-top: $d;
+        opacity: 0;
+    }
+}
+.tooltip {
+    z-index: 100;
+    position: absolute;
+    margin-left: 20px;
+    @include transition(margin .1s ease, opacity .1s ease);
+    padding: .5em;
+    max-width: $side-w + 25;
+    font-size: 14px;
+
+    $s: 7px;
+    &.show {
+        margin-left: 0;
+        opacity: 1;
+    }
+    &:before {
+        content:  ' ';
+        left: 0;
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 50%;
+        margin-top: -$s;
+        left: -$s;
+        border-top: $s solid transparent;
+        border-bottom: $s solid transparent;
+        border-right:$s solid $notice-bg;
+    }
+    input[type=text] {
+        background: transparentize(#fff, .05);
+        color: $overlay-bg;
+    }
+    b {
+        font-weight: bold;
+    }
+    input {
+        font-size: inherit;
+        &:focus {
+            @include box-shadow(none);
+        }
+    }
+    &.command {
+        /*width: $side-w;*/
+        max-width: none;
+        white-space: nowrap;
+        label {
+            /*display: block;*/
+            margin-bottom: .1em;
+        }
+        input {
+            cursor: pointer;
+            /*display: block;*/
+            width: $side-w;
+        }
+    }
+}
+
