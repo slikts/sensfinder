@@ -87,7 +87,7 @@ var Tool = {
         }, 5000);
 
         $(window).scroll(this.updateScroll.bind(this));
-        this.startTool();
+//        this.startTool();
     },
     addInitialRow: function() {
         var settings = this.settings;
