@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="stylesheet" href="./static/css/main.css">
+        <link rel="shortcut icon" href="./static/favicon.png">
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+
+        <title>CS sensitivity finder</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="tool_side">
+                <p id="logo"><a href="">Home</a></p>
+                <div id="tool">
+                    <div id="tool_table_container">
+                        <div id="tool_table_wrap">
+                            <table id="tool_table">
+                                <thead>
+                                    <tr id="tool_header">
+                                        <th id="tool_header_a">Low</th>
+                                        <th id="tool_header_b">High</th>
+                                    </tr>
+                                    <tr class="placeholder">
+                                        <td colspan="2">&nbsp;</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="tool_tbody">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="tool_overlay_a" class="tool_overlay"></div>
+                        <div id="tool_overlay_b" class="tool_overlay"></div>
+                    </div>
+                    <div id="tool_options">
+                        <p class="tool_options tool_options_text has_tooltip"
+                           data-tooltip="The initial <b>Low</b> and <b>High</b> sensitivities are based on the <b>Base sensitivity</b> option value.
+                           It should preferably be the sensitivity that allows you to do a 360&deg;
+                           turn with a full swipe across the mousepad, but it's not a hard rule.
+                           For example, if you're using a very high mouse sensor resolution (DPI) setting,
+                           changing the <b>Base sensitivity</b> option value can allow you to narrow in on good sensitivities in less steps.">
+                            <label for="tool_sens">Base sensitivity</label>
+                            <input id="tool_sens"
+                                   type="text">
+                        </p>
+                        <p class="tool_options tool_options_text has_tooltip"
+                           data-tooltip="Choosing the <b>Low</b> sensitivity in the current step will divide it by the <b>Divisor</b> option value and set it as the new <b>Low</b> sensitivity for the next step,
+                           and the new <b>High</b> sensitivity will be the average of the <b>Low</b> and <b>High</b> sensitivities of the current step.">
+                            <label for="tool_down">Divisor</label>
+                            <input id="tool_down"
+                                   type="text">
+                        </p>
+                        <p class="tool_options tool_options_text has_tooltip"
+                           data-tooltip="Choosing the <b>High</b> sensitivity in the current step will multiply it by the <b>Multiplier</b> option value and set it as the new <b>High</b> sensitivity for the next step,
+                           and the new <b>Low</b> sensitivity will be the average of the <b>Low</b> and <b>High</b> sensitivities of the current step.">
+                            <label for="tool_up">Multiplier</label>
+                            <input id="tool_up"
+                                   type="text">
+                        </p>
+                        <p class="tool_options tool_options_text has_tooltip"
+                           data-tooltip="The <b>Divisor</b> and <b>Multiplier</b> option values will be progressively reduced based on the <b>Step adjustment</b>
+                           option value and the number of steps taken.
+                           The point is to make the search more accurate by making the steps progressively more narrow.
+                           Setting the <b>Step adjustment</b> option value to 1 will disable it, and setting it closer to 0 will make the steps narrower.">
+                            <label for="tool_adjust">Step adjustment</label>
+                            <input id="tool_adjust"
+                                   type="text">
+                        </p>
+                        <p class="tool_options tool_options_text has_tooltip"
+                           data-tooltip="The <b>Switch key</b> option is used to set the key binding for switching between the two sensitivities
+                           to be tested in the current step.
+                           The first active sensitivity will always be from the left column, and the second will always be from the right.
+                           There will be a console message telling which sensitivity is currently active.">
+                            <label for="tool_switch">Switch key</label>
+                            <input id="tool_switch"
+                                   type="text">
+                        </p>
+                        <p class="tool_options tool_options_checkbox has_tooltip"
+                           data-tooltip="If the <b>Auto copy</b> option is enabled, the console commands for
+                           setting the sensitivities in-game will be copied to the clipboard automatically (Flash support required),
+                           otherwise you will need to copy the commands by hand.">
+                            <label for="tool_autocopy">Auto copy</label>
+                            <input id="tool_autocopy"
+                                   type="checkbox">
+                        </p>
+                        <p class="tool_options tool_options_checkbox has_tooltip"
+                           data-tooltip="If the <b>Blinded test</b> option is enabled, the <b>Low</b> and <b>High</b>
+                           sensitivity settings will be renamed to <b>A</b> and <b>B</b>, and their values will be hidden
+                           and randomly reversed to try to make the testing more objective.">
+                            <label for="tool_blinded">Blinded test</label>
+                            <input id="tool_blinded"
+                                   type="checkbox">
+                        </p>
+                        <button id="tool_start">Start</button>
+                    </div>
+                    <ul id="tool_controls">
+                        <li id="tool_reset"><a>Reset</a></li>
+                        <li id="tool_undo"><a>Undo</a></li>
+                        <li id="tool_defaults"><a>Restore defaults</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="content">
+                <noscript>
+                <p class="notice">
+                    This tool requires JavaScript to work!
+                </p>
+                </noscript>
+                
+
+<h1>CS sensitivity finder</h1>
+<p>This is a tool to help finding the best individual mouse sensitivity setting for CS players. It simplifies and improves the steps used in <a href="http://youtu.be/uxBuiD11WDM">this method</a> (video). The point of the method is to try to be more objective in comparing different sensitivities.</p>
+<p>The tool gives you a command to paste in the game console&nbsp;(<kbd>~</kbd>) that allows switching between a pair of mouse sensitivity settings by pressing a key&nbsp;(<kbd class="switchkey"></kbd>). You test and compare both settings in-game and then return to the tool and select which setting worked better. The tool then gives you a new command to enter into the console and you repeat the process until you've found the sensitivity that is the most accurate.</p>
+<h2>Steps</h2>
+<ol>
+<li>
+<p>Press <em>Start</em> in the tool</p>
+<p>If Flash is supported and the <em>Auto copy</em> option is checked, it will automatically copy the console commands for changing the sensitivity in-game to the clipboard, otherwise you will need to <kbd>Ctrl+C</kbd> the commands manually.</p>
+<p>Mouse over the tool options to see a detailed description of each option. The default settings should work in most cases.</p>
+</li>
+<li>
+<p>Go to the game and paste the commands in console</p>
+<p>The console can be enabled in <em>Options</em> &rarr; <em>Game Settings</em> &rarr; <em>Enable Developer Console</em> and accessed with the Tilde&nbsp;key&nbsp;(<kbd>~</kbd>).</p>
+<p>Setting the game to <em>Windowed Fullscreen</em> might be a good idea because it makes using <kbd>Alt+Tab</kbd> easier.</p>
+</li>
+<li>
+<p>Test the first sensitivity setting and remember the results</p>
+</li>
+<li>
+<p>Press the switch key&nbsp;(<kbd class="switchkey"></kbd>) and test the other sensitivity setting</p>
+<p>The switch key can be customized in tool options. You can unbind the key after the test by entering <code>unbind "<span class="switchkey"></span>"</code> in the console.</p>
+</li>
+<li>
+<p>Go to the tool and select the sensitivity that had better results</p>
+<p>The tool will calculate two new sensitivity settings and give you the console command to set them in game.</p>
+</li>
+<li>
+<p>Return to Step 1</p>
+<p>Do this until you've found the sensitivity setting that you think works the best.</p>
+</li>
+</ol>
+<h2>Testing</h2>
+<p>I recommend using the <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=210194828">training_aim_csgo_fixed</a> map for testing because it gives you results as numbers, so they're easy to compare, and the tests are closer to actual gameplay. The difficulty and length of testing depends on what you want, but it's important to test both sensitivity settings in the same way. For example, you could use the <em>Fast Aiming</em> test and repeat it at close and far distances for both settings.</p>
+<p>To use the <strong>training_aim_csgo_fixed</strong> map, Subscribe to it from its Workshop page, and then go to <em>Play</em> &rarr; <em>Offline With Bots</em> &rarr; <em>Workshop</em> and select the map.</p>
+<h2>About</h2>
+<p>Project <a href="https://github.com/slikts/sensfinder">GitHub page</a> | <a href="#">reddit post</a></p>
+<p>This tool is published under the MIT licence.</p>
+<p>Made by slikts &lt;<a href="mailto:dabas@untu.ms">dabas@untu.ms</a>&gt;</p>
+
+
+            </div>
+        </div>
+
+        
+        <script>
+            var _config = {
+                staticUrl: './static'
+            };
+        </script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+        <!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>-->
+        <script>jQuery || document.write('<script src="./static/js/vendor/jquery-2.1.0.min.js"><\/script>');</script>
+        <script src="./static/js/vendor/ZeroClipboard.min.js"></script>
+        <script src="./static/js/main.js"></script>
+        
+    </body>
+</html>
