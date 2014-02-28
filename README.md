@@ -1,5 +1,8 @@
 # CS sensitivity finder
 
-You can use [Cactus](//github.com/koenbok/Cactus) and [Compass](http://compass-style.org/) to build this.
+Building:
+
+ * `[cactus](//github.com/koenbok/Cactus) serve`
+ * `compass [compass](http://compass-style.org/) watch`
 
 Published under the MIT licence.
