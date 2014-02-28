@@ -1,4 +1,4 @@
-http_path = "/"
+relative_assets = true
 css_dir = "static/css"
 sass_dir = "sass"
 images_dir = "static/img"

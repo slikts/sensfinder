@@ -142,9 +142,8 @@ continues to the next step.');
         }
     },
     resetTool: function(event, forced) {
-        if (!forced && !confirm('Are you sure you want to reset the tool state?\n\
-\n\
-Current settings will be preserved.')) {
+        if (!forced && !confirm('Are you sure you want to reset the tool state?\n\n' +
+                'Current settings will be preserved.')) {
             return;
         }
         this.lastSwapped = false;
