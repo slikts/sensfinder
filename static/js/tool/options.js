@@ -1,5 +1,6 @@
 'use strict';
 
+
 var Options = function(settings) {
     this.settings = settings;
     this.add = _addEach.bind(this, this._addEl, '$inputs');
@@ -22,7 +23,31 @@ Options.prototype._update = function(key, value, i, input) {
     input.update(value);
 };
 
-Options.prototype.Input = function($el, defaultType) {
+Options.prototype._addEl = function(i, el) {
+    var self = this;
+    var $input = $(el);
+    var key = $input.attr('name');
+    if (!key) {
+        return;
+    }
+    var map = this._inputs;
+    if (!map[key]) {
+        map[key] = [];
+    }
+    var input = new OptionsInput($input);
+    input.update(this.settings[key]);
+    map[key].push(input);
+    $input.change(function() {
+        if (input.validate()) {
+            self.settings[key] = input.value();
+            $input.removeClass('error');
+        } else {
+            $input.addClass('error');
+        }
+    });
+};
+
+var OptionsInput = function($el) {
     this.$el = $el;
     var type = $el.attr('type');
     if (type === 'checkbox') {
@@ -42,25 +67,28 @@ Options.prototype.Input = function($el, defaultType) {
     }
 };
 
-Options.prototype._addEl = function(i, el) {
-    var self = this;
-    var $input = $(el);
-    var key = $input.attr('name');
-    if (!key) {
-        return;
+OptionsInput.prototype._validators = {
+    'float': /^\d+(\.\d+)?$/,
+    '>0': function(value) {
+        return value > 0;
     }
-    var map = this._inputs;
-    if (!map[key]) {
-        map[key] = [];
-    }
-    var input = new this.Input($input);
-    input.update(this.settings[key]);
-    map[key].push(input);
-    $input.change(function() {
-        self.settings[key] = input.value();
-    });
 };
 
-Options.prototype.change = function(event) {
+OptionsInput.prototype.validate = function() {
+    var self = this;
+    var valid = true;
+    var validators = this.$el.data('validate');
+    if (validators) {
+        $.each(validators, function(i, item) {
+            var value = self.value();
+            var validator = self._validators[item];
+            if (validator instanceof RegExp ?
+                    !validator.test(value) : !validator(value)) {
+                return valid = false;
+            }
 
+            return true;
+        });
+    }
+    return valid;
 };

@@ -20,3 +20,12 @@ var ObserverMixin = {
         callbacks[event].push(callback);
     }
 };
+
+function _addEach(fn, allKey, $els) {
+    $els.each(fn.bind(this));
+    if (!this[allKey]) {
+        this[allKey] = $els;
+    } else {
+        this[allKey] = this[allKey].add($els);
+    }
+}

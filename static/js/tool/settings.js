@@ -6,6 +6,7 @@ var Settings = function(defaults, settings, Storage) {
     this._defaults = defaults;
     var _settings = $.extend({}, defaults, settings);
     $.each(defaults, function(key) {
+        // Doesn't work in Opera 11
         Object.defineProperty(self, key, {
             set: function(value) {
                 var defaultType = typeof defaults[key];
@@ -50,5 +51,6 @@ Settings.prototype._save = function() {
 };
 
 Settings.prototype._reset = function() {
-    $.each(this._defaults, this._storage.remove.bind(this));
+    $.each(this._defaults, this._storage.remove.bind(this._storage));
+    $.extend(this, this._defaults);
 };

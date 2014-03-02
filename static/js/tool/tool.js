@@ -23,14 +23,65 @@ var Tool = function(initSettings, Settings, Storage, Dom, Options) {
     this.options.add(this.$root.find('input'));
 };
 
-function _addEach(fn, allKey, $els) {
-    $els.each(fn.bind(this));
-    if (!this[allKey]) {
-        this[allKey] = $els;
-    } else {
-        this[allKey] = this[allKey].add($els);
-    }
-}
+Tool.prototype.start = function() {
+
+};
+
+Tool.prototype.reset = function() {
+
+};
+
+Tool.prototype.restoreDefaults = function() {
+
+};
+
+Tool.prototype.autoFind = function() {
+
+};
+
+Tool.prototype.undoLast = function() {
+
+};
+
+
+var ToolTable = function() {
+
+};
+
+
+
+
+
+//Array.prototype.last = function() {
+//    return this[this.length - 1];
+//};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 (function() {
     var _Tool = {
@@ -592,10 +643,6 @@ continues to the next step.');
             this.$overlay_b.width(this.$header_b.outerWidth());
             this._updateTableWrap();
         }
-    };
-
-    Array.prototype.last = function() {
-        return this[this.length - 1];
     };
 
     $(function() {
