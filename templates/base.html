@@ -43,6 +43,7 @@
                            changing the <b>Base sensitivity</b> option value can allow you to narrow in on good sensitivities in less steps.">
                             <label for="tool_sens">Base sensitivity</label>
                             <input id="tool_sens"
+                                   name="baseSens"
                                    type="text">
                         </p>
                         <p class="tool_options tool_options_text has_tooltip"
@@ -50,6 +51,7 @@
                            and the new <b>High</b> sensitivity will be the average of the <b>Low</b> and <b>High</b> sensitivities of the current step.">
                             <label for="tool_down">Divisor</label>
                             <input id="tool_down"
+                                   name="downStep"
                                    type="text">
                         </p>
                         <p class="tool_options tool_options_text has_tooltip"
@@ -57,9 +59,11 @@
                            and the new <b>Low</b> sensitivity will be the average of the <b>Low</b> and <b>High</b> sensitivities of the current step.">
                             <label for="tool_up">Multiplier</label>
                             <input id="tool_up"
+                                   name="upStep"
                                    type="text">
                         </p>
                         <p class="tool_options tool_options_text has_tooltip"
+                           style="display: none;"
                            data-tooltip="The <b>Divisor</b> and <b>Multiplier</b> option values will be progressively reduced based on the <b>Step adjustment</b>
                            option value and the number of steps taken.
                            The point is to make the search more accurate by making the steps progressively more narrow.
@@ -75,6 +79,7 @@
                            There will be a console message telling which sensitivity is currently active.">
                             <label for="tool_switch">Switch key</label>
                             <input id="tool_switch"
+                                   name="switchKey"
                                    type="text">
                         </p>
                         <p class="tool_options tool_options_checkbox has_tooltip"
@@ -83,6 +88,7 @@
                            otherwise you will need to copy the commands by hand.">
                             <label for="tool_autocopy">Auto copy</label>
                             <input id="tool_autocopy"
+                                   name="autoCopy"
                                    type="checkbox">
                         </p>
                         <p class="tool_options tool_options_checkbox has_tooltip"
@@ -91,6 +97,7 @@
                            and randomly reversed to try to make the testing more objective.">
                             <label for="tool_blinded">Blinded test</label>
                             <input id="tool_blinded"
+                                   name="blinded"
                                    type="checkbox">
                         </p>
                         <button id="tool_start">Start</button>
@@ -124,6 +131,13 @@
         <!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>-->
         <script>jQuery || document.write('<script src="{{ STATIC_URL }}/js/vendor/jquery-2.1.0.min.js"><\/script>');</script>
         <script src="{{ STATIC_URL }}/js/vendor/ZeroClipboard.min.js"></script>
+        <script src="{{ STATIC_URL }}/js/observer.js"></script>
+        <script src="{{ STATIC_URL }}/js/tool/dom.js"></script>
+        <script src="{{ STATIC_URL }}/js/tool/settings.js"></script>
+        <script src="{{ STATIC_URL }}/js/tool/storage.js"></script>
+        <script src="{{ STATIC_URL }}/js/tool/options.js"></script>
+        <script src="{{ STATIC_URL }}/js/tool/utils.js"></script>
+        <script src="{{ STATIC_URL }}/js/tool/tool.js"></script>
         <script src="{{ STATIC_URL }}/js/main.js"></script>
         {% endblock %}
     </body>
