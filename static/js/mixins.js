@@ -2,11 +2,15 @@
 
 var ObserverMixin = {
     fireEvent: function(event, args) {
-        if (!this._callbacks) {
+        if (ObserverMixin.debug) {
+            ObserverMixin.debug(event, this, args);
+        }
+        var self = this;
+        if (!this._callbacks || !this._callbacks[event]) {
             return;
         }
         $.each(this._callbacks[event], function(i, callback) {
-            callback.apply(null, args);
+            callback.apply(self, args);
         });
     },
     subscribe: function(event, callback) {
