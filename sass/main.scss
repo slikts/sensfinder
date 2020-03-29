@@ -4,16 +4,16 @@
 
 @include font-face('Logo', font-files('logo.woff', 'logo.otf', 'logo.svg'), 'logo.eot');
 
-$bg: #38c622;
-$bg2: #44c92b;
+$bg: #fff;
+$bg2: #fff;
 
-$link: #e92836;
-$link-visited: #af424a;
+$link: #000;
+$link-visited: #fefefe;
 
 $line-height: 1.25;
 
-$kbd-text: #1b810b;
-$kbd-bg: #89e37b;
+$kbd-text: #000;
+$kbd-bg: #fff;
 
 $main-r: 3px;
 
@@ -27,17 +27,17 @@ $button-bg: transparentize(#fff, .825);
 
 $table-border-color: transparentize(#fff, .75);
 
-$input-bg: #459538;
+$input-bg: #000;
 
 $wrapper-p-v: 3.5em;
 $tool-w: 170px;
 
-$notice-bg-solid: #f4858d;
+$notice-bg-solid: #fefefe;
 $notice-bg: transparentize($notice-bg-solid, .05);
 
 $monospace: Consolas, monospace;
 
-$overlay-bg: #459538;
+$overlay-bg: #000;
 
 $color-demph: lighten(#cef1c8, 1%);
 
